@@ -2,13 +2,17 @@ package com.hanah.book.springboot.service.posts;
 
 import com.hanah.book.springboot.domain.posts.Posts;
 import com.hanah.book.springboot.domain.posts.PostsRepository;
+import com.hanah.book.springboot.web.dto.PostsListResponseDto;
 import com.hanah.book.springboot.web.dto.PostsResponseDto;
 import com.hanah.book.springboot.web.dto.PostsSaveRequestDto;
 import com.hanah.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -33,5 +37,12 @@ public class PostsService {
                 IllegalArgumentException("해당 게시글이 없습니다. id = "+id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
