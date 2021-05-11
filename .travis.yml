@@ -5,10 +5,7 @@ jdk:
 branches:
   only:
     - master
-
-before_install:
-  - chmod +x gradlew
-
+    -
 # Travis CI 서버의 Home
 cache:
   directories:
@@ -35,7 +32,7 @@ deploy:
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY # Travis repo setting에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
     bucket: spring-boot-aws-webservice-build # S3 버킷
     key: springboot-aws-webservice.zip # 빌드 파일을 압축해 전달
     bundle_type: zip # 압축 확장자
