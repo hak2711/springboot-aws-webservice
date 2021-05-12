@@ -1,4 +1,4 @@
-package com.hanah.book.springboot.service.posts;
+package com.hanah.book.springboot.service;
 
 import com.hanah.book.springboot.domain.posts.Posts;
 import com.hanah.book.springboot.domain.posts.PostsRepository;
