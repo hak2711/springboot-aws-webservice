@@ -15,6 +15,9 @@
                 {{^userName}}
                     <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
                 {{/userName}}
+                {{^userName}}
+                    <a href="/oauth2/authorization/kakao" class="btn btn-warning active" role="button">Kakao Login</a>
+                {{/userName}}
             </div>
         </div>
         <br>
